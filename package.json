@@ -1,0 +1,70 @@
+{
+  "name": "create-supabase-app",
+  "version": "0.1.0",
+  "description": "A CLI to create apps powered by Supabase",
+  "author": "Raphaël Moreau <raphael@uaerom.com> (https://twitter.com/rphlmr)",
+  "main": "dist/app.js",
+  "bin": {
+    "create-supabase-app": "dist/app.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "README.md",
+    "LICENSE.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "node build.js",
+    "prepublish": "npm run build",
+    "prestart": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/app.js",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cuid": "^2.1.8",
+    "figures": "^5.0.0",
+    "ink": "^3.2.0",
+    "ink-big-text": "^1.2.0",
+    "ink-gradient": "^2.0.0",
+    "ink-spinner": "^4.0.3",
+    "ink-text-input": "^4.0.3",
+    "inquirer": "^9.1.0",
+    "install": "^0.13.0",
+    "node-fetch": "^3.2.10",
+    "npm": "^8.17.0",
+    "ora": "^6.1.2",
+    "react-error-boundary": "^3.1.4",
+    "yn": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/ink-big-text": "^1.2.1",
+    "@types/ink-gradient": "^2.0.1",
+    "@types/inquirer": "^9.0.0",
+    "@types/node": "^18.6.5",
+    "@types/node-fetch": "^2.6.2",
+    "@types/react": "^17.0.48",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "chalk": "^4.1.2",
+    "esbuild": "^0.15.2",
+    "esbuild-register": "^3.3.3",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.4.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "prettier": {}
+}
