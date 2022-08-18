@@ -26,11 +26,14 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
+    "cowsay": "^1.5.0",
     "cuid": "^2.1.8",
-    "figures": "^5.0.0",
+    "drawille": "^1.1.1",
+    "figures": "^3.2.0",
     "ink": "^3.2.0",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
+    "ink-select-input": "^4.2.1",
     "ink-spinner": "^4.0.3",
     "ink-text-input": "^4.0.3",
     "inquirer": "^9.1.0",
@@ -39,6 +42,7 @@
     "npm": "^8.17.0",
     "ora": "^6.1.2",
     "react-error-boundary": "^3.1.4",
+    "terminal-image": "^1.2.1",
     "yn": "^4.0.0"
   },
   "devDependencies": {

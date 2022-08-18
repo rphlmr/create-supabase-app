@@ -2,11 +2,10 @@ import React from "react";
 
 import { Box, Text } from "ink";
 
-import { useRoute, useRouteParams } from "@router/router-context";
+import { useRoute } from "@router/router-context";
 
 const Demo = () => {
-  const { path } = useRoute();
-  const params = useRouteParams() as { confirm: boolean };
+  const { path, params } = useRoute();
 
   return (
     <Box
@@ -18,7 +17,7 @@ const Demo = () => {
       position="relative"
     >
       <Text>
-        {path}, {JSON.stringify(params)}
+        {path} {JSON.stringify(params)}
       </Text>
     </Box>
   );

@@ -1,4 +1,4 @@
-import type { FrameworkProjectType } from "./framework";
+import type { FrameworkProjectType } from "./framework.old";
 import type { ConfigBase } from "./types";
 
 export type SupabaseProjectType = "new" | "existing";

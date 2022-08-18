@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 
-import type { Framework } from "@config/framework";
-import { frameworkConfig } from "@config/framework";
+import type { Framework } from "@config/framework.old";
+import { frameworkConfig } from "@config/framework.old";
 
 async function selectFramework() {
   const { framework } = await inquirer.prompt<{ framework: Framework }>([

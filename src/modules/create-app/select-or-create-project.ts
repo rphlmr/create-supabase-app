@@ -11,7 +11,7 @@ import {
 
 import { print, NEW_LINE } from "@utils/print";
 
-import type { FrameworkProjectType } from "@config/framework";
+import type { FrameworkProjectType } from "@config/framework.old";
 import type { SupabaseProjectType } from "@config/supabase";
 import { getSupabaseProjectTypes } from "@config/supabase";
 

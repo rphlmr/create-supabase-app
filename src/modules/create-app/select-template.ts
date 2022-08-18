@@ -4,8 +4,8 @@ import type {
   Framework,
   FrameworkProjectType,
   FrameworkTemplate,
-} from "@config/framework";
-import { getProjectTemplates, getProjectTypes } from "@config/framework";
+} from "@config/framework.old";
+import { getProjectTemplates, getProjectTypes } from "@config/framework.old";
 
 async function selectTemplate(framework: Framework) {
   const { frameworkProjectType, template } = await inquirer.prompt<{
