@@ -1,4 +1,4 @@
-import React, { cloneElement, createElement } from "react";
+import React, { cloneElement } from "react";
 
 import { NotFoundScreen as DefaultNotFoundScreen } from "./not-found-screen";
 import { useRouter } from "./router-context";

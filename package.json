@@ -70,5 +70,11 @@
   "engines": {
     "node": ">=14"
   },
-  "prettier": {}
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "singleAttributePerLine": true
+  }
 }

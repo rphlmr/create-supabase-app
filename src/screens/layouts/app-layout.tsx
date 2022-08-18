@@ -30,12 +30,18 @@ const WindowButtons = () => {
       marginLeft={-1}
       alignSelf="flex-start"
     >
-      <Box borderStyle="round" borderColor="red">
+      <Box
+        borderStyle="round"
+        borderColor="red"
+      >
         <Text>Exit (esc)</Text>
       </Box>
       <Spacer />
       {accessToken ? (
-        <Box borderStyle="round" borderColor="cyan">
+        <Box
+          borderStyle="round"
+          borderColor="cyan"
+        >
           <Text>Logout (shift + F1)</Text>
         </Box>
       ) : null}
@@ -63,7 +69,10 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
         alignItems="center"
       >
         {/* Hack Emoji */}
-        <Box justifyContent="center" marginLeft={-2}>
+        <Box
+          justifyContent="center"
+          marginLeft={-2}
+        >
           <Box marginRight={1}>
             <Text color="yellow">👁</Text>
           </Box>
@@ -77,7 +86,10 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
 
         <Box justifyContent="center">
           <Text>{`v${packageJson.version} `}</Text>
-          <Text bold color="red">
+          <Text
+            bold
+            color="red"
+          >
             Aplha
           </Text>
         </Box>

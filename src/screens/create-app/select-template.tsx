@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import { Box, Text } from "ink";
 import SelectInput from "ink-select-input";
@@ -6,16 +6,19 @@ import SelectInput from "ink-select-input";
 import { PrOwl } from "@components/pr-owl";
 import { Indicator } from "@components/select-input/indicator";
 import { Option } from "@components/select-input/option";
-import { availableFw, comingSoonFw } from "@config/frameworks";
-import { useNavigation } from "@router/router-context";
+import type { CreateAppDatas } from "@config/frameworks";
+import { getTemplates } from "@config/frameworks";
+import { useNavigation, useRouteParams } from "@router/router-context";
 
-const SelectFrameworkScreen = () => {
-  const [choice, setChoice] = useState(availableFw[0]);
+const SelectTemplateScreen = () => {
+  const { framework } = useRouteParams() as Pick<CreateAppDatas, "framework">;
   const { navigateTo } = useNavigation();
+  const templates = useMemo(() => getTemplates(framework), [framework]);
+  const [choice, setChoice] = useState(templates[0]);
 
   const handleSelect = useCallback(
-    (framework: { value: string }) => {
-      navigateTo(`/create-app/select-template`, { framework: framework.value });
+    (template: { value: string }) => {
+      navigateTo(`/create-app/select-location`, { template: template.value });
     },
     [navigateTo]
   );
@@ -27,7 +30,7 @@ const SelectFrameworkScreen = () => {
         justifyContent="center"
       >
         <PrOwl>
-          <Text bold>Pick a framework</Text>
+          <Text bold>Pick a template</Text>
           <Text
             italic
             color="gray"
@@ -54,13 +57,7 @@ const SelectFrameworkScreen = () => {
             marginTop={1}
             width={35}
           >
-            <Text>Bookmark the documentation!</Text>
-            <Text
-              color="cyan"
-              wrap="truncate-middle"
-            >
-              {choice.url}
-            </Text>
+            <Text color="blue">{choice.description}</Text>
           </Box>
         </PrOwl>
       </Box>
@@ -70,21 +67,15 @@ const SelectFrameworkScreen = () => {
         justifyContent="center"
       >
         <SelectInput
-          items={availableFw}
+          items={templates}
           onSelect={handleSelect}
           itemComponent={Option}
           onHighlight={(item) => setChoice(item as typeof choice)}
           indicatorComponent={Indicator}
         />
-        {comingSoonFw.map(({ label }) => (
-          <Option
-            label={`${label} (coming soon)`}
-            key={label}
-          />
-        ))}
       </Box>
     </Box>
   );
 };
 
-export default SelectFrameworkScreen;
+export default SelectTemplateScreen;

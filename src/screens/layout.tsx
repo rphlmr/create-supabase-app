@@ -17,9 +17,15 @@ const BaseLayout = ({ children }: { children?: React.ReactNode }) => (
       <Gradient colors={["#5E12CD", "#34B27B", "#5E12CD"]}>
         <BigText text="supabase" />
       </Gradient>
-      <Box position="absolute" marginTop={8}>
+      <Box
+        position="absolute"
+        marginTop={8}
+      >
         <Text>{`v${packageJson.version} `}</Text>
-        <Text bold color="red">
+        <Text
+          bold
+          color="red"
+        >
           Beta
         </Text>
       </Box>
@@ -36,7 +42,10 @@ const BaseLayout = ({ children }: { children?: React.ReactNode }) => (
       <Text>Exit (esc)</Text>
     </Box>
 
-    <Box flexDirection="column" paddingX={1}>
+    <Box
+      flexDirection="column"
+      paddingX={1}
+    >
       {children}
     </Box>
   </Box>

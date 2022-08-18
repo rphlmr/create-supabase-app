@@ -13,21 +13,40 @@ const ErrorFallback = ({ error }: { error: Error }) => (
     position="relative"
   >
     <Gradient name="fruit">
-      <BigText letterSpacing={5} text="crash" />
+      <BigText
+        letterSpacing={5}
+        text="crash"
+      />
     </Gradient>
 
-    <Text bold color="gray">
+    <Text
+      bold
+      color="gray"
+    >
       Stay calm and complain here :{" "}
-      <Text bold color="blue">
+      <Text
+        bold
+        color="blue"
+      >
         https://
       </Text>
     </Text>
 
     <Newline />
 
-    <Box flexDirection="column" alignItems="center">
-      <Box borderColor="red" borderStyle="round" padding={1}>
-        <Text bold color="red">
+    <Box
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Box
+        borderColor="red"
+        borderStyle="round"
+        padding={1}
+      >
+        <Text
+          bold
+          color="red"
+        >
           {error.message}
         </Text>
       </Box>
