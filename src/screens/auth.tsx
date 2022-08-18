@@ -33,6 +33,8 @@ const AuthScreen = ({ successTo }: { successTo: string }) => {
     saveAccessToken(input);
   };
 
+  if (isLoggedIn) return null;
+
   return (
     <Box flexDirection="column" alignItems="center">
       <Box
