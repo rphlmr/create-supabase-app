@@ -100,7 +100,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
       flexDirection="column"
       paddingX={1}
       paddingBottom={1}
-      paddingTop={3}
+      paddingTop={4}
       alignItems="center"
       width="100%"
       position="relative"

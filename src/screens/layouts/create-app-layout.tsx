@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import figures from "figures";
 import { Box, Text } from "ink";
@@ -11,7 +11,7 @@ import type { CreateAppDatas } from "@config/frameworks";
 import { getTemplate, getFrameworkName } from "@config/frameworks";
 import { useRouteParams } from "@router/router-context";
 
-const CreateAppLayout = ({ children }: { children?: React.ReactNode }) => {
+const useFetchRepository = () => {
   const { template, framework, projectDir } = useRouteParams() as Pick<
     CreateAppDatas,
     "framework" | "template" | "projectDir"
@@ -36,6 +36,15 @@ const CreateAppLayout = ({ children }: { children?: React.ReactNode }) => {
       });
     }
   }, [framework, template, projectDir]);
+
+  return useMemo(
+    () => ({ isLoading, loadingMessage }),
+    [isLoading, loadingMessage]
+  );
+};
+
+const CreateAppLayout = ({ children }: { children?: React.ReactNode }) => {
+  const { isLoading, loadingMessage } = useFetchRepository();
 
   return (
     <>

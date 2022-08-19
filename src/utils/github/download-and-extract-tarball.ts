@@ -2,10 +2,10 @@
  * Credit to Remix CLI https://github.com/remix-run/remix/blob/main/packages/remix-dev/cli/create.ts
  */
 
+import path from "node:path";
 import stream from "node:stream/promises";
 
 import gunzip from "gunzip-maybe";
-import fetch from "node-fetch";
 import { extract } from "tar-fs";
 
 import { createError } from "@utils/handle-error";
@@ -13,12 +13,22 @@ import { NEW_LINE } from "@utils/print";
 
 import type { RepoInfo } from "./extract-repo-info";
 
-// TODO: add more use case like downloading from a branch (to test pull request), from a local path to test before making pull request, etc
+const fetchPromise = import("node-fetch").then((mod) => mod.default);
+// We can't build this app with ESM for now :/
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const fetch = (...args) => fetchPromise.then((fetch) => fetch(...args));
+
+// TODO: add more use cases like downloading from a local path to test before making pull request, etc
 export async function downloadAnExtractTarball(
   projectDir: string,
-  repoInfo: RepoInfo
+  { branch, filePath, name, owner }: RepoInfo
 ) {
-  const resourceUrl = `https://codeload.github.com/${repoInfo.owner}/${repoInfo.name}/tar.gz/main`;
+  const resourceUrl = `https://codeload.github.com/${owner}/${name}/tar.gz/${branch}`;
+
+  if (filePath) {
+    filePath = filePath.split(path.sep).join(path.posix.sep);
+  }
 
   const response = await fetch(resourceUrl);
 
@@ -33,6 +43,14 @@ export async function downloadAnExtractTarball(
         map(header) {
           const originalDirName = header.name.split("/")[0];
           header.name = header.name.replace(`${originalDirName}/`, "");
+
+          if (filePath) {
+            if (header.name.startsWith(filePath)) {
+              header.name = header.name.replace(filePath, "");
+            } else {
+              header.name = "__IGNORE__";
+            }
+          }
 
           return header;
         },
