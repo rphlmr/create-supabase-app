@@ -3,21 +3,18 @@ import React from "react";
 import { Box, Text } from "ink";
 import Gradient from "ink-gradient";
 
-// const owl = `
-// \\
-//  \\
-//   ___
-//  (o o)
-// (  V  )
-// /--m-m-
-// `;
-
 const owl = `
   ___
  (o o)
 (  V  )
 /--m-m-
 `;
+
+export const Owl = () => (
+  <Gradient name="retro">
+    <Text>{owl}</Text>
+  </Gradient>
+);
 
 export const PrOwl = ({ children }: { children: React.ReactNode }) => (
   <Box
@@ -44,9 +41,7 @@ export const PrOwl = ({ children }: { children: React.ReactNode }) => (
       position="absolute"
       marginTop={-4}
     >
-      <Gradient name="retro">
-        <Text>{owl}</Text>
-      </Gradient>
+      <Owl />
     </Box>
   </Box>
 );

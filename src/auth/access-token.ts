@@ -10,7 +10,7 @@ const accessTokenPath = path.join(os.homedir(), ".supabase", "access-token");
 
 const accessTokenPattern = new RegExp(/^sbp_[a-f0-9]{40}$/);
 
-export function isToken(accessToken: string | undefined | null) {
+export function isToken(accessToken: string | undefined) {
   return accessTokenPattern.test(accessToken ?? "");
 }
 

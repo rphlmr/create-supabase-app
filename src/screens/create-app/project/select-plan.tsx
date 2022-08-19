@@ -1,24 +1,22 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { Box, Text } from "ink";
 import SelectInput from "ink-select-input";
 
+import { getPlans } from "@api/supabase/project";
+
 import { PrOwl } from "@components/pr-owl";
 import { Indicator } from "@components/select-input/indicator";
 import { Option } from "@components/select-input/option";
-import type { CreateAppDatas } from "@config/frameworks";
-import { getTemplates } from "@config/frameworks";
-import { useNavigation, useRouteParams } from "@router/router-context";
+import { useNavigation } from "@router/router-context";
 
-const SelectOrganizationScreen = () => {
-  const { framework } = useRouteParams() as Pick<CreateAppDatas, "framework">;
+const SelectPlanScreen = () => {
+  const [choice, setChoice] = useState(getPlans()[0]);
   const { navigateTo } = useNavigation();
-  const templates = useMemo(() => getTemplates(framework), [framework]);
-  const [choice, setChoice] = useState(templates[0]);
 
   const handleSelect = useCallback(
-    (template: { value: string }) => {
-      navigateTo(`/create-app/select-location`, { template: template.value });
+    ({ value }: { value: string }) => {
+      navigateTo(`/create-app/project/create`, { plan: value });
     },
     [navigateTo]
   );
@@ -30,7 +28,7 @@ const SelectOrganizationScreen = () => {
         justifyContent="center"
       >
         <PrOwl>
-          <Text bold>Pick an organization</Text>
+          <Text bold>Select a plan that suits your needs</Text>
           <Text
             italic
             color="gray"
@@ -52,12 +50,14 @@ const SelectOrganizationScreen = () => {
             </Text>
           </Box>
           <Box
+            width={35}
+            marginTop={1}
             flexDirection="column"
             alignItems="center"
-            marginTop={1}
-            width={35}
           >
-            <Text color="blue">{choice.description}</Text>
+            <Text color="blue">
+              See https://supabase.com/pricing for more details
+            </Text>
           </Box>
         </PrOwl>
       </Box>
@@ -65,17 +65,19 @@ const SelectOrganizationScreen = () => {
       <Box
         flexDirection="column"
         justifyContent="center"
+        width={35}
       >
-        {/* <SelectInput
-          items={templates}
+        <SelectInput
+          items={getPlans()}
           onSelect={handleSelect}
           itemComponent={Option}
           onHighlight={(item) => setChoice(item as typeof choice)}
           indicatorComponent={Indicator}
-        /> */}
+          limit={3}
+        />
       </Box>
     </Box>
   );
 };
 
-export default SelectOrganizationScreen;
+export default SelectPlanScreen;

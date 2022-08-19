@@ -17,10 +17,17 @@ const SelectProjectDirScreen = () => {
 
   const handleSubmit = useCallback(
     async (input: string) => {
-      const projectDir = `${process.cwd()}/${input || defaultFolder}`;
+      const projectDir = await checkNewProjectPath(
+        `${process.cwd()}/${input || defaultFolder}`
+      );
 
-      if (await checkNewProjectPath(projectDir))
-        return navigateTo(`/create-app/select-organization`, { projectDir });
+      if (projectDir) {
+        const projectName = projectDir.split("/").pop();
+        return navigateTo(`/create-app/organization`, {
+          projectDir,
+          projectName,
+        });
+      }
 
       setIsInvalidChoice(true);
     },
@@ -65,6 +72,8 @@ const SelectProjectDirScreen = () => {
             <Box
               width={35}
               marginTop={1}
+              flexDirection="column"
+              alignItems="center"
             >
               <Text color="red">The project directory must be empty</Text>
             </Box>

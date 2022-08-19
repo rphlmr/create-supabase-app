@@ -15,7 +15,7 @@ import { NEW_LINE } from "@utils/print";
 import type { RepoInfo } from "./extract-repo-info";
 
 // TODO: add more use cases like downloading from a local path to test before making pull request, etc
-export async function downloadAnExtractTarball(
+export async function downloadAndExtractTarball(
   projectDir: string,
   { branch, filePath, name, owner }: RepoInfo
 ) {

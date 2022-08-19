@@ -20,7 +20,7 @@ import { isToken, loadAccessToken, persistAccessToken } from "./access-token";
 
 const AuthContext = createContext<
   | {
-      accessToken?: string | null;
+      accessToken?: string;
       saveAccessToken: (
         accessToken: string
       ) => ReturnType<typeof persistAccessToken>;

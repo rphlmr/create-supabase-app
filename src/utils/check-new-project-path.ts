@@ -14,8 +14,8 @@ export async function checkNewProjectPath(location: string) {
   // if directory exists, check if it is empty
   if (isDirectoryExists) {
     // empty directory? OK
-    return (await readdir(projectDir)).length === 0;
+    return (await readdir(projectDir)).length === 0 ? projectDir : null;
   }
 
-  return true;
+  return projectDir;
 }

@@ -15,7 +15,7 @@ const ErrorFallback = ({ error }: { error: Error }) => (
     <Gradient name="fruit">
       <BigText
         letterSpacing={5}
-        text="crash"
+        text="Game Over"
       />
     </Gradient>
 

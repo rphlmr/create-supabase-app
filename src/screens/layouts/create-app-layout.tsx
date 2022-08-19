@@ -4,8 +4,8 @@ import figures from "figures";
 import { Box, Text } from "ink";
 import Spinner from "ink-spinner";
 
-import { downloadAnExtractTarball } from "@utils/github/download-and-extract-tarball";
-import { extractRepoInfo } from "@utils/github/extract-repo-info";
+import { downloadAndExtractTarball } from "@api/github/download-and-extract-tarball";
+import { extractRepoInfo } from "@api/github/extract-repo-info";
 
 import type { CreateAppDatas } from "@config/frameworks";
 import { getTemplate, getFrameworkName } from "@config/frameworks";
@@ -20,6 +20,8 @@ const useFetchRepository = () => {
   const [loadingMessage, setLoadingMessage] = useState<string>();
 
   useEffect(() => {
+    let id: NodeJS.Timeout;
+
     if (template && framework && projectDir) {
       const fwName = getFrameworkName(framework);
       const { label: templateName, url } = getTemplate(framework, template);
@@ -28,13 +30,18 @@ const useFetchRepository = () => {
         `I'm downloading ${fwName}'s template ${templateName} in the background`
       );
 
-      downloadAnExtractTarball(projectDir, extractRepoInfo(url)).then(() => {
+      downloadAndExtractTarball(projectDir, extractRepoInfo(url)).then(() => {
         setIsLoading(false);
-        setLoadingMessage(
-          `${fwName}'s template ${templateName} downloading is done`
-        );
+        setLoadingMessage(`${fwName}'s template ${templateName} downloaded`);
+        id = setTimeout(() => {
+          setLoadingMessage(undefined);
+        }, 5000);
       });
     }
+
+    return () => {
+      clearTimeout(id);
+    };
   }, [framework, template, projectDir]);
 
   return useMemo(

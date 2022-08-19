@@ -40,6 +40,7 @@ module.exports = {
     "arrow-body-style": ["warn", "as-needed"],
     // React
     "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
     // @typescript-eslint
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/no-non-null-assertion": "off",

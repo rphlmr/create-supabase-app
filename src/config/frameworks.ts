@@ -1,3 +1,5 @@
+import type { Region } from "@api/supabase/project";
+
 const supportedFrameworks = {
   remix: {
     label: "Remix",
@@ -67,4 +69,10 @@ export type CreateAppDatas = {
   framework: Framework;
   template: Template;
   projectDir: string;
+  organizationId: string;
+  projectName: string;
+  supabaseProjectName: string;
+  dbPassword: string;
+  plan: "free" | "pro";
+  region: Region;
 };

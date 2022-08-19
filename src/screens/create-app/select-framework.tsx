@@ -14,8 +14,8 @@ const SelectFrameworkScreen = () => {
   const { navigateTo } = useNavigation();
 
   const handleSelect = useCallback(
-    (framework: { value: string }) => {
-      navigateTo(`/create-app/select-template`, { framework: framework.value });
+    ({ value }: { value: string }) => {
+      navigateTo(`/create-app/select-template`, { framework: value });
     },
     [navigateTo]
   );
