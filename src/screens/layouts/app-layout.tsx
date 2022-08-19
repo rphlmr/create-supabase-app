@@ -74,13 +74,13 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
           marginLeft={-2}
         >
           <Box marginRight={1}>
-            <Text color="yellow">👁</Text>
+            <Text>👁</Text>
           </Box>
           <Box marginLeft={1}>
             <Text color="yellow">⚡️</Text>
           </Box>
           <Box marginLeft={-2}>
-            <Text color="yellow">👁</Text>
+            <Text>👁</Text>
           </Box>
         </Box>
 

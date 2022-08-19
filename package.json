@@ -30,6 +30,7 @@
     "cuid": "^2.1.8",
     "drawille": "^1.1.1",
     "figures": "^3.2.0",
+    "fs-extra": "^10.1.0",
     "ink": "^3.2.0",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
@@ -46,6 +47,7 @@
     "yn": "^4.0.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/ink-big-text": "^1.2.1",
     "@types/ink-gradient": "^2.0.1",
     "@types/inquirer": "^9.0.0",

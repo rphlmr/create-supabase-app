@@ -1,6 +1,7 @@
-import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+
+import { readFile, pathExists, mkdir, stat, writeFile } from "fs-extra";
 
 import { createError } from "@utils/handle-error";
 
@@ -21,8 +22,7 @@ export async function loadAccessToken() {
 
   // check if exists in config file
   if (!accessToken) {
-    accessToken = await fs
-      .readFile(accessTokenPath, "utf8")
+    accessToken = await readFile(accessTokenPath, "utf8")
       .then((token) => token.trim())
       .catch(() => undefined);
   }
@@ -31,18 +31,16 @@ export async function loadAccessToken() {
 }
 
 export async function persistAccessToken(accessToken: string) {
-  const configPathExists = await fs
-    .access(configPath)
-    .then(() => true)
-    .catch(() => false);
+  const configPathExists =
+    (await pathExists(configPath)) && (await stat(configPath)).isDirectory();
 
   if (!configPathExists) {
-    await fs.mkdir(configPath).catch((e) => {
+    await mkdir(configPath).catch((e) => {
       throw createError(`Unable to create config directory ${configPath}`, e);
     });
   }
 
-  await fs.writeFile(accessTokenPath, accessToken, "utf-8").catch((e) => {
+  await writeFile(accessTokenPath, accessToken, "utf-8").catch((e) => {
     throw createError(`Unable to save access token in ${configPath}`, e);
   });
 }
