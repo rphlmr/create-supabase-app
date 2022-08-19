@@ -1,4 +1,4 @@
-import type { Response } from "node-fetch";
+// import type { Response } from "node-fetch";
 
 import { NEW_LINE } from "./print";
 
@@ -16,9 +16,9 @@ export function createError(message: string, error?: unknown) {
   );
 }
 
-export async function APIError(message: string, response: Response) {
-  const details = await response.text().catch(() => "Unknown");
-  return new Error(
-    `${message}. "${response.status}" - "${response.statusText}"\n.Details : ${details}`
-  );
-}
+// export async function APIError(message: string, response: Response) {
+//   const details = await response.text().catch(() => "Unknown");
+//   return new Error(
+//     `${message}. "${response.status}" - "${response.statusText}"\n.Details : ${details}`
+//   );
+// }

@@ -10,7 +10,7 @@ const supportedFrameworks = {
         label: "Blank (with authentication)",
         description:
           "Just the basics, authentication included. Start coding your awesome project right away",
-        url: "https://github.com/rphlmr/create-supabase-app",
+        url: "https://github.com/rphlmr/supa-fly-stack",
       },
       {
         value: "notestaking",
@@ -51,8 +51,20 @@ export const getTemplates = (framework: Framework) => [
   ...supportedFrameworks[framework].templates,
 ];
 
+export const getTemplate = (framework: Framework, template: Template) =>
+  getTemplates(framework).filter(({ value }) => value === template)[0];
+
+export const getFrameworkName = (framework: Framework) =>
+  supportedFrameworks[framework].label;
+
+export const getTemplateName = (framework: Framework, template: Template) =>
+  getTemplate(framework, template).label;
+
 export type Framework = keyof typeof supportedFrameworks;
+export type Template = ReturnType<typeof getTemplates>[number]["value"];
 
 export type CreateAppDatas = {
   framework: Framework;
+  template: Template;
+  projectDir: string;
 };

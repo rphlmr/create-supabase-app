@@ -10,17 +10,15 @@ import type { CreateAppDatas } from "@config/frameworks";
 import { getTemplates } from "@config/frameworks";
 import { useNavigation, useRouteParams } from "@router/router-context";
 
-const SelectTemplateScreen = () => {
+const SelectOrganizationScreen = () => {
   const { framework } = useRouteParams() as Pick<CreateAppDatas, "framework">;
   const { navigateTo } = useNavigation();
   const templates = useMemo(() => getTemplates(framework), [framework]);
   const [choice, setChoice] = useState(templates[0]);
 
   const handleSelect = useCallback(
-    ({ value }: { value: string }) => {
-      navigateTo(`/create-app/select-project-dir`, {
-        template: value,
-      });
+    (template: { value: string }) => {
+      navigateTo(`/create-app/select-location`, { template: template.value });
     },
     [navigateTo]
   );
@@ -32,7 +30,7 @@ const SelectTemplateScreen = () => {
         justifyContent="center"
       >
         <PrOwl>
-          <Text bold>Pick a template</Text>
+          <Text bold>Pick an organization</Text>
           <Text
             italic
             color="gray"
@@ -68,16 +66,16 @@ const SelectTemplateScreen = () => {
         flexDirection="column"
         justifyContent="center"
       >
-        <SelectInput
+        {/* <SelectInput
           items={templates}
           onSelect={handleSelect}
           itemComponent={Option}
           onHighlight={(item) => setChoice(item as typeof choice)}
           indicatorComponent={Indicator}
-        />
+        /> */}
       </Box>
     </Box>
   );
 };
 
-export default SelectTemplateScreen;
+export default SelectOrganizationScreen;

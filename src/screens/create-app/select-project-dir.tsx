@@ -3,21 +3,34 @@ import React, { useCallback, useState } from "react";
 import { Box, Text } from "ink";
 import TextInput from "ink-text-input";
 
+import { checkNewProjectPath } from "@utils/check-new-project-path";
+
 import { PrOwl } from "@components/pr-owl";
 import { useNavigation } from "@router/router-context";
 
-const defaultLocation = "./my-supabase-app";
+const defaultFolder = "./my-supabase-app";
 
-const SelectLocationScreen = () => {
+const SelectProjectDirScreen = () => {
   const { navigateTo } = useNavigation();
   const [choice, setChoice] = useState("");
+  const [isInvalidChoice, setIsInvalidChoice] = useState(false);
 
   const handleSubmit = useCallback(
-    (location: string) => {
-      navigateTo(`/create-app/select-organization`, { location });
+    async (input: string) => {
+      const projectDir = `${process.cwd()}/${input || defaultFolder}`;
+
+      if (await checkNewProjectPath(projectDir))
+        return navigateTo(`/create-app/select-organization`, { projectDir });
+
+      setIsInvalidChoice(true);
     },
     [navigateTo]
   );
+
+  const handleChange = useCallback(async (choice: string) => {
+    setIsInvalidChoice(false);
+    setChoice(choice);
+  }, []);
 
   return (
     <Box justifyContent="center">
@@ -44,9 +57,18 @@ const SelectLocationScreen = () => {
               bold
               color="green"
             >
-              {choice || defaultLocation}
+              {choice || defaultFolder}
             </Text>
           </Box>
+
+          {isInvalidChoice ? (
+            <Box
+              width={35}
+              marginTop={1}
+            >
+              <Text color="red">The project directory must be empty</Text>
+            </Box>
+          ) : null}
         </PrOwl>
       </Box>
 
@@ -62,7 +84,7 @@ const SelectLocationScreen = () => {
         >
           <TextInput
             value={choice}
-            onChange={setChoice}
+            onChange={handleChange}
             onSubmit={handleSubmit}
             placeholder="./my-supabase-app"
           />
@@ -72,4 +94,4 @@ const SelectLocationScreen = () => {
   );
 };
 
-export default SelectLocationScreen;
+export default SelectProjectDirScreen;
