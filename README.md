@@ -12,7 +12,7 @@ This terminal application aims to help new developers to quickly create ready to
 > 21/08/2022 : not tested on Windows & Linux. Planned to be tested asap.
 
 ```sh
-npx create-supabase-app@latest
+npx create-supabase-app@latest # Not yet available 🙃
 ```
 
 ## Future
