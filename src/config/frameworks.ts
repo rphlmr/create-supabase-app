@@ -8,11 +8,11 @@ const supportedFrameworks = {
     enabled: true,
     templates: [
       {
-        value: "blank",
-        label: "Blank (with authentication)",
+        value: "basic",
+        label: "Basic (with authentication)",
         description:
           "Just the basics, authentication included. Start coding your awesome project right away",
-        url: "https://github.com/rphlmr/demo/tree/main/examples/remix/blank",
+        url: "https://github.com/rphlmr/demo/tree/main/examples/remix/basic",
       },
     ],
   },
@@ -23,8 +23,8 @@ const supportedFrameworks = {
     enabled: false,
     templates: [
       {
-        value: "blank",
-        label: "Blank",
+        value: "basic",
+        label: "Basic",
         description: "",
         url: "https://nextjs.org/",
       },
