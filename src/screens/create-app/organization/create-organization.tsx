@@ -61,10 +61,7 @@ const CreateOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Box alignItems="center" flexDirection="column">
         <Box marginBottom={1}>
           <Text color="blue">
             <Spinner type="bouncingBar" />
@@ -82,10 +79,7 @@ const CreateOrganizationScreen = () => {
   if (error) {
     return (
       <Box justifyContent="center">
-        <Text
-          color="red"
-          bold
-        >
+        <Text color="red" bold>
           <Text>{error}</Text>
         </Text>
       </Box>
@@ -94,29 +88,16 @@ const CreateOrganizationScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>Create a Supabase organization</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
 
-          <Box
-            flexDirection="column"
-            alignItems="center"
-            marginTop={1}
-          >
+          <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {choice || getUserName()}
             </Text>
           </Box>
@@ -135,16 +116,8 @@ It's a logical grouping of your Supabase projects.`}
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-      >
-        <Box
-          borderStyle="round"
-          borderColor="white"
-          paddingX={2}
-          width={35}
-        >
+      <Box flexDirection="column" justifyContent="center">
+        <Box borderStyle="round" borderColor="white" paddingX={2} width={35}>
           <TextInput
             value={choice}
             onChange={setChoice}

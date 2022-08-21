@@ -66,10 +66,7 @@ const CreateProjectScreen = () => {
 
   if (isLoading) {
     return (
-      <Box
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Box alignItems="center" flexDirection="column">
         <Box marginBottom={1}>
           <Text color="blue">
             <Spinner type="bouncingBar" />
@@ -86,10 +83,7 @@ const CreateProjectScreen = () => {
   if (error) {
     return (
       <Box justifyContent="center">
-        <Text
-          color="red"
-          bold
-        >
+        <Text color="red" bold>
           <Text>{error}</Text>
         </Text>
       </Box>

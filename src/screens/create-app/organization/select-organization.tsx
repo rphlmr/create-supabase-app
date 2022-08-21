@@ -68,10 +68,7 @@ const SelectOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Box alignItems="center" flexDirection="column">
         <Box marginBottom={1}>
           <Text color="blue">
             <Spinner type="bouncingBar" />
@@ -86,10 +83,7 @@ const SelectOrganizationScreen = () => {
   if (error) {
     return (
       <Box justifyContent="center">
-        <Text
-          color="red"
-          bold
-        >
+        <Text color="red" bold>
           <Text>{error}</Text>
         </Text>
       </Box>
@@ -98,39 +92,23 @@ const SelectOrganizationScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>Pick an organization</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
 
-          <Box
-            flexDirection="column"
-            alignItems="center"
-            marginTop={1}
-          >
+          <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {(choice || choices[0])?.label}
             </Text>
           </Box>
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-      >
+      <Box flexDirection="column" justifyContent="center">
         <SelectInput
           items={choices}
           initialIndex={0}

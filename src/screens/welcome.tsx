@@ -14,19 +14,12 @@ const WelcomeScreen = () => {
   });
 
   return (
-    <Box
-      flexDirection="column"
-      alignItems="center"
-    >
+    <Box flexDirection="column" alignItems="center">
       <Text bold>Pick a starter project & start playing with Supabase!</Text>
 
       {/* on press, /auth */}
       <Box marginTop={1}>
-        <Box
-          borderStyle="round"
-          borderColor="blue"
-          paddingX={1}
-        >
+        <Box borderStyle="round" borderColor="blue" paddingX={1}>
           <Text bold>Press Enter to continue</Text>
         </Box>
       </Box>

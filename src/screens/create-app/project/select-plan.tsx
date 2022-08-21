@@ -23,29 +23,16 @@ const SelectPlanScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>Select a plan that suits your needs</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
 
-          <Box
-            flexDirection="column"
-            alignItems="center"
-            marginTop={1}
-          >
+          <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {choice.label}
             </Text>
           </Box>
@@ -62,11 +49,7 @@ const SelectPlanScreen = () => {
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-        width={35}
-      >
+      <Box flexDirection="column" justifyContent="center" width={35}>
         <SelectInput
           items={getPlans()}
           onSelect={handleSelect}

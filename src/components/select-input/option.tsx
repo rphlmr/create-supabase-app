@@ -13,10 +13,7 @@ export const Option = ({
     paddingX={1}
     justifyContent="center"
   >
-    <Text
-      bold={isSelected}
-      color={isSelected ? "green" : "grey"}
-    >
+    <Text bold={isSelected} color={isSelected ? "green" : "grey"}>
       {label}
     </Text>
   </Box>

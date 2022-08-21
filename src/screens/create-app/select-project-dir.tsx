@@ -41,29 +41,16 @@ const SelectProjectDirScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>Tell me where to create your app</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
 
-          <Box
-            flexDirection="column"
-            alignItems="center"
-            marginTop={1}
-          >
+          <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {choice || defaultFolder}
             </Text>
           </Box>
@@ -81,10 +68,7 @@ const SelectProjectDirScreen = () => {
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-      >
+      <Box flexDirection="column" justifyContent="center">
         <TextInput
           value={choice}
           onChange={handleChange}

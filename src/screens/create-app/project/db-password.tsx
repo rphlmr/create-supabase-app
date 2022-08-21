@@ -22,25 +22,16 @@ const DbPasswordScreen = () => {
       <Box justifyContent="center">
         <PrOwl>
           <Text bold>Your Supabase database password</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
           <Box marginTop={1}>
-            <Text
-              bold
-              color="blue"
-            >
+            <Text bold color="blue">
               I've generated one for you
             </Text>
           </Box>
           <Box marginTop={1}>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {dbPassword}
             </Text>
           </Box>

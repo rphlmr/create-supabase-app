@@ -22,29 +22,16 @@ const SelectFrameworkScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>Pick a framework</Text>
-          <Text
-            italic
-            color="gray"
-          >
+          <Text italic color="gray">
             Press Enter to continue
           </Text>
 
-          <Box
-            flexDirection="column"
-            alignItems="center"
-            marginTop={1}
-          >
+          <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {choice.label}
             </Text>
           </Box>
@@ -55,20 +42,14 @@ const SelectFrameworkScreen = () => {
             width={35}
           >
             <Text>Bookmark the documentation!</Text>
-            <Text
-              color="cyan"
-              wrap="truncate-middle"
-            >
+            <Text color="cyan" wrap="truncate-middle">
               {choice.url}
             </Text>
           </Box>
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-      >
+      <Box flexDirection="column" justifyContent="center">
         <SelectInput
           items={availableFw}
           onSelect={handleSelect}
@@ -77,10 +58,7 @@ const SelectFrameworkScreen = () => {
           indicatorComponent={Indicator}
         />
         {comingSoonFw.map(({ label }) => (
-          <Option
-            label={`${label} (coming soon)`}
-            key={label}
-          />
+          <Option label={`${label} (coming soon)`} key={label} />
         ))}
       </Box>
     </Box>

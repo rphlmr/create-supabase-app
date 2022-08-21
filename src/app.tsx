@@ -24,69 +24,30 @@ import WelcomeScreen from "@screens/welcome";
 export const App = () => (
   <AuthProvider>
     <RouterProvider>
-      <Router
-        startingPath="/welcome"
-        layout={<AppLayout />}
-      >
-        <Route
-          path="/welcome"
-          screen={<WelcomeScreen />}
-        />
-        <Route
-          path="/"
-          screen={<AuthScreen successTo="/create-app" />}
-        >
+      <Router startingPath="/welcome" layout={<AppLayout />}>
+        <Route path="/welcome" screen={<WelcomeScreen />} />
+        <Route path="/" screen={<AuthScreen successTo="/create-app" />}>
           <Route
             path="create-app"
             screen={<SelectFrameworkScreen />}
             layout={<CreateAppLayout />}
           >
-            <Route
-              path="select-template"
-              screen={<SelectTemplateScreen />}
-            />
+            <Route path="select-template" screen={<SelectTemplateScreen />} />
             <Route
               path="select-project-dir"
               screen={<SelectProjectDirScreen />}
             />
-            <Route
-              path="organization"
-              screen={<SelectOrganizationScreen />}
-            >
-              <Route
-                path="create"
-                screen={<CreateOrganizationScreen />}
-              />
+            <Route path="organization" screen={<SelectOrganizationScreen />}>
+              <Route path="create" screen={<CreateOrganizationScreen />} />
             </Route>
-            <Route
-              path="project"
-              screen={<SupabaseProjectNameScreen />}
-            >
-              <Route
-                path="db-password"
-                screen={<DbPasswordScreen />}
-              />
-              <Route
-                path="region"
-                screen={<SelectRegionScreen />}
-              />
-              <Route
-                path="plan"
-                screen={<SelectPlanScreen />}
-              />
-              <Route
-                path="create"
-                screen={<CreateProjectScreen />}
-              />
-              <Route
-                path="api-keys"
-                screen={<APIKeyScreen />}
-              />
+            <Route path="project" screen={<SupabaseProjectNameScreen />}>
+              <Route path="db-password" screen={<DbPasswordScreen />} />
+              <Route path="region" screen={<SelectRegionScreen />} />
+              <Route path="plan" screen={<SelectPlanScreen />} />
+              <Route path="create" screen={<CreateProjectScreen />} />
+              <Route path="api-keys" screen={<APIKeyScreen />} />
             </Route>
-            <Route
-              path="run-init-project"
-              screen={<RunProjectInit />}
-            />
+            <Route path="run-init-project" screen={<RunProjectInit />} />
           </Route>
         </Route>
       </Router>

@@ -56,15 +56,9 @@ const CreateAppLayout = ({ children }: { children?: React.ReactNode }) => {
   return (
     <>
       {children}
-      <Box
-        justifyContent="center"
-        marginTop={2}
-      >
+      <Box justifyContent="center" marginTop={2}>
         {loadingMessage ? (
-          <Text
-            color="gray"
-            dimColor
-          >
+          <Text color="gray" dimColor>
             {isLoading ? <Spinner type="dots" /> : figures.tick}{" "}
             <Text>{loadingMessage}</Text>
           </Text>

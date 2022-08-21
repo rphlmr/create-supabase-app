@@ -30,17 +30,11 @@ export const PrOwl = ({ children }: { children: React.ReactNode }) => (
       flexDirection="column"
       paddingX={1}
     >
-      <Box
-        flexDirection="column"
-        alignItems="center"
-      >
+      <Box flexDirection="column" alignItems="center">
         {children}
       </Box>
     </Box>
-    <Box
-      position="absolute"
-      marginTop={-4}
-    >
+    <Box position="absolute" marginTop={-4}>
       <Owl />
     </Box>
   </Box>

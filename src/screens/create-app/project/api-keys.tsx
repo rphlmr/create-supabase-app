@@ -36,19 +36,13 @@ const APIKeyScreen = () => {
 
   return (
     <Box justifyContent="center">
-      <Box
-        marginRight={8}
-        justifyContent="center"
-      >
+      <Box marginRight={8} justifyContent="center">
         <PrOwl>
           <Text bold>
             Set your <Text color="yellow">{currentKey}</Text> API Key
           </Text>
 
-          <Text
-            italic
-            color="grey"
-          >
+          <Text italic color="grey">
             Press Enter to confirm
           </Text>
 
@@ -59,19 +53,11 @@ const APIKeyScreen = () => {
             width={35}
           >
             <Text>You set</Text>
-            <Text
-              wrap="truncate-middle"
-              bold
-              color="green"
-            >
+            <Text wrap="truncate-middle" bold color="green">
               {currentKey === "anon public" ? anonKey : serviceRoleKey}
             </Text>
           </Box>
-          <Box
-            width={35}
-            marginTop={1}
-            flexDirection="column"
-          >
+          <Box width={35} marginTop={1} flexDirection="column">
             <Text color="blue">
               Make a mistake? You can always change it later in the project .env
               file.
@@ -80,17 +66,11 @@ const APIKeyScreen = () => {
         </PrOwl>
       </Box>
 
-      <Box
-        flexDirection="column"
-        justifyContent="center"
-      >
+      <Box flexDirection="column" justifyContent="center">
         <Box marginBottom={1}>
           <Text>
             You can find your{" "}
-            <Text
-              color="yellow"
-              bold
-            >
+            <Text color="yellow" bold>
               {currentKey} key
             </Text>{" "}
             here 👇

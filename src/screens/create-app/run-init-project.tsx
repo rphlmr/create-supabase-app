@@ -44,10 +44,7 @@ export default function RunProjectInit() {
 
   if (isLoading) {
     return (
-      <Box
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Box alignItems="center" flexDirection="column">
         <Box marginBottom={1}>
           <Text color="blue">
             <Spinner type="bouncingBar" />
@@ -68,10 +65,7 @@ export default function RunProjectInit() {
   if (error) {
     return (
       <Box justifyContent="center">
-        <Text
-          color="red"
-          bold
-        >
+        <Text color="red" bold>
           <Text>{error}</Text>
         </Text>
       </Box>
@@ -79,41 +73,26 @@ export default function RunProjectInit() {
   }
 
   return (
-    <Box
-      alignItems="center"
-      flexDirection="column"
-    >
+    <Box alignItems="center" flexDirection="column">
       <PrOwl>
         <Box>
-          <Text
-            color="green"
-            bold
-          >
+          <Text color="green" bold>
             That's all folks 🥳
           </Text>
         </Box>
         <Box marginTop={1}>
-          <Text
-            color="green"
-            bold
-          >
+          <Text color="green" bold>
             {figures.tick} Your project {projectName} has been created
           </Text>
         </Box>
         <Box marginTop={1}>
           <Text>
             Now,{" "}
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               `cd`
             </Text>{" "}
             into "
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               {projectDir}
             </Text>
             "
@@ -122,17 +101,11 @@ export default function RunProjectInit() {
         <Box marginTop={1}>
           <Text>
             Run{" "}
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               `npm install`
             </Text>{" "}
             & when it's done, run{" "}
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               `npm run dev`
             </Text>
           </Text>
@@ -140,10 +113,7 @@ export default function RunProjectInit() {
         <Box marginTop={1}>
           <Text>
             Take a look at the{" "}
-            <Text
-              bold
-              color="green"
-            >
+            <Text bold color="green">
               README
             </Text>
           </Text>

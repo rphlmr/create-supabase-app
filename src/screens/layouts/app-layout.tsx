@@ -30,18 +30,12 @@ const WindowButtons = () => {
       marginLeft={-1}
       alignSelf="flex-start"
     >
-      <Box
-        borderStyle="round"
-        borderColor="red"
-      >
+      <Box borderStyle="round" borderColor="red">
         <Text>Exit (esc)</Text>
       </Box>
       <Spacer />
       {accessToken ? (
-        <Box
-          borderStyle="round"
-          borderColor="cyan"
-        >
+        <Box borderStyle="round" borderColor="cyan">
           <Text>Logout (shift + F1)</Text>
         </Box>
       ) : null}
@@ -58,10 +52,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
     alignItems="center"
   >
     <WindowButtons />
-    <Box
-      justifyContent="center"
-      marginTop={1}
-    >
+    <Box justifyContent="center" marginTop={1}>
       <Gradient colors={["#5E12CD", "#34B27B", "#5E12CD"]}>
         <BigText text="supabase" />
       </Gradient>
@@ -72,10 +63,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
         alignItems="center"
       >
         {/* Hack Emoji */}
-        <Box
-          justifyContent="center"
-          marginLeft={-2}
-        >
+        <Box justifyContent="center" marginLeft={-2}>
           <Box marginRight={1}>
             <Text>👁</Text>
           </Box>
@@ -89,10 +77,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
 
         <Box justifyContent="center">
           <Text>{`v${packageJson.version} `}</Text>
-          <Text
-            bold
-            color="red"
-          >
+          <Text bold color="red">
             Aplha
           </Text>
         </Box>

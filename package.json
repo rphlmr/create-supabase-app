@@ -22,7 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "typecheck": "tsc -b "
+    "typecheck": "tsc -b",
+    "format": "prettier --write ."
   },
   "license": "MIT",
   "dependencies": {
@@ -72,7 +73,6 @@
     "tabWidth": 2,
     "useTabs": false,
     "semi": true,
-    "singleQuote": false,
-    "singleAttributePerLine": true
+    "singleQuote": false
   }
 }

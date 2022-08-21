@@ -36,10 +36,7 @@ const AuthScreen = ({ successTo }: { successTo: string }) => {
   if (isLoggedIn) return null;
 
   return (
-    <Box
-      flexDirection="column"
-      alignItems="center"
-    >
+    <Box flexDirection="column" alignItems="center">
       <Box
         marginTop={1}
         flexDirection="column"
@@ -47,24 +44,15 @@ const AuthScreen = ({ successTo }: { successTo: string }) => {
         alignItems="center"
       >
         {isSubmitOnError ? (
-          <Text
-            color="red"
-            bold
-          >
+          <Text color="red" bold>
             ❌ Invalid access token format. Must be like `sbp_0102...1920`
           </Text>
         ) : isValidToken ? (
-          <Text
-            color="green"
-            bold
-          >
+          <Text color="green" bold>
             ✅ Your access token is valid
           </Text>
         ) : (
-          <Text
-            color="white"
-            bold
-          >
+          <Text color="white" bold>
             🔑 Enter your access token to continue
           </Text>
         )}
@@ -86,11 +74,7 @@ const AuthScreen = ({ successTo }: { successTo: string }) => {
         </Box>
       </Box>
 
-      <Box
-        flexDirection="column"
-        alignItems="center"
-        marginTop={2}
-      >
+      <Box flexDirection="column" alignItems="center" marginTop={2}>
         <Text color="yellow">You can generate an access token here</Text>
         <Text>👇</Text>
         <Text color="cyan">https://app.supabase.io/account/tokens</Text>
