@@ -1,6 +1,6 @@
 {
   "name": "create-supabase-app",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "A CLI to create apps powered by Supabase",
   "author": "Raphaël Moreau <raphael@uaerom.com> (https://twitter.com/rphlmr)",
   "main": "dist/app.js",
