@@ -2,8 +2,10 @@ node_modules
 
 .env
 
-.history
 .vscode
 .idea
 
 dist
+
+# project location placeholder
+my-supabase-app

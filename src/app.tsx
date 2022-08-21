@@ -3,14 +3,22 @@ import React from "react";
 
 import { AuthProvider } from "@auth/auth-context";
 import AppLayout from "@layouts/app-layout";
+import CreateAppLayout from "@layouts/create-app-layout";
 import { Router, Route } from "@router/router";
 import { RouterProvider } from "@router/router-context";
 import AuthScreen from "@screens/auth";
-import ConfirmName from "@screens/confirm-name";
-import Demo from "@screens/demo";
-import LeftAsideLayout from "@screens/left-aside-layout";
-import NewProject from "@screens/new-project";
-import RightAsideLayout from "@screens/right-aside-layout";
+import CreateOrganizationScreen from "@screens/create-app/organization/create-organization";
+import SelectOrganizationScreen from "@screens/create-app/organization/select-organization";
+import APIKeyScreen from "@screens/create-app/project/api-keys";
+import CreateProjectScreen from "@screens/create-app/project/create-project";
+import DbPasswordScreen from "@screens/create-app/project/db-password";
+import SelectPlanScreen from "@screens/create-app/project/select-plan";
+import SelectRegionScreen from "@screens/create-app/project/select-region";
+import SupabaseProjectNameScreen from "@screens/create-app/project/supabase-project-name";
+import RunProjectInit from "@screens/create-app/run-init-project";
+import SelectFrameworkScreen from "@screens/create-app/select-framework";
+import SelectProjectDirScreen from "@screens/create-app/select-project-dir";
+import SelectTemplateScreen from "@screens/create-app/select-template";
 import WelcomeScreen from "@screens/welcome";
 
 export const App = () => (
@@ -18,20 +26,28 @@ export const App = () => (
     <RouterProvider>
       <Router startingPath="/welcome" layout={<AppLayout />}>
         <Route path="/welcome" screen={<WelcomeScreen />} />
-        <Route path="/" screen={<AuthScreen successTo="/menu" />}>
+        <Route path="/" screen={<AuthScreen successTo="/create-app" />}>
           <Route
-            path="menu"
-            screen={<NewProject />}
-            layout={<RightAsideLayout />}
+            path="create-app"
+            screen={<SelectFrameworkScreen />}
+            layout={<CreateAppLayout />}
           >
+            <Route path="select-template" screen={<SelectTemplateScreen />} />
             <Route
-              path="name"
-              screen={<ConfirmName />}
-              layout={<LeftAsideLayout />}
-            >
-              <Route path="confirm" screen={<Demo />} />
+              path="select-project-dir"
+              screen={<SelectProjectDirScreen />}
+            />
+            <Route path="organization" screen={<SelectOrganizationScreen />}>
+              <Route path="create" screen={<CreateOrganizationScreen />} />
             </Route>
-            <Route path="list" screen={<Demo />} />
+            <Route path="project" screen={<SupabaseProjectNameScreen />}>
+              <Route path="db-password" screen={<DbPasswordScreen />} />
+              <Route path="region" screen={<SelectRegionScreen />} />
+              <Route path="plan" screen={<SelectPlanScreen />} />
+              <Route path="create" screen={<CreateProjectScreen />} />
+              <Route path="api-keys" screen={<APIKeyScreen />} />
+            </Route>
+            <Route path="run-init-project" screen={<RunProjectInit />} />
           </Route>
         </Route>
       </Router>

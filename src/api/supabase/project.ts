@@ -1,9 +1,7 @@
-import fetch from "node-fetch";
+import { nfetch } from "@utils/fetch";
+import { createError, mayBeSupabaseAPIError } from "@utils/handle-error";
 
-import { APIError } from "@utils/handle-error";
-import { spinner } from "@utils/spinner";
-
-import { supabaseAPIHost } from "./utils";
+import { supabaseAPI } from "./utils";
 
 const region = {
   "ap-northeast-1": "Northeast Asia (Tokyo)",
@@ -22,21 +20,14 @@ const region = {
 
 export type Region = keyof typeof region;
 
-export type ProjectResponse = {
+type ProjectResponse = {
   id: string;
   name: string;
 };
 
-export function mapProjectChoices(projects: ProjectResponse[]) {
-  return projects.map(({ id, name }) => ({
-    name,
-    value: id,
-  }));
-}
-
 const plan = {
-  free: { value: "free", name: "Free" },
-  pro: { value: "pro", name: "Pro" },
+  free: { value: "free", label: "Free" },
+  pro: { value: "pro", label: "Pro" },
 };
 export type Plan = keyof typeof plan;
 
@@ -48,10 +39,8 @@ export type CreateProjectBody = {
   region: Region;
 };
 
-const APIUrl = `${supabaseAPIHost}/v1/projects`;
-
 export function getRegions() {
-  return Object.entries(region).map(([value, name]) => ({ name, value }));
+  return Object.entries(region).map(([value, label]) => ({ label, value }));
 }
 
 export function getPlans() {
@@ -70,12 +59,17 @@ export function generatePassword() {
 }
 
 export async function createProject(
-  accessToken: string,
-  body: CreateProjectBody
+  body: CreateProjectBody,
+  {
+    accessToken,
+  }: {
+    accessToken?: string | null;
+    signal?: AbortSignal;
+  }
 ) {
-  spinner.start(`Creating your project "${body.name}"`);
+  if (!accessToken) throw createError("Access token is required");
 
-  const response = await fetch(APIUrl, {
+  const response = await nfetch(`${supabaseAPI}/projects`, {
     method: "post",
     body: JSON.stringify(body),
     headers: {
@@ -84,15 +78,14 @@ export async function createProject(
     },
   });
 
-  if (!response.ok) {
-    throw APIError(
+  if (response.status !== 201) {
+    const maybeApiError = await mayBeSupabaseAPIError(response);
+
+    throw createError(
       `There was a problem creating your project "${body.name}"`,
-      response
+      maybeApiError
     );
   }
-
-  spinner.succeed(`Project "${body.name}" successfully created`);
-  spinner.succeed(`We are going to use this project ("${body.name}") now`);
 
   return (await response.json()) as ProjectResponse;
 }

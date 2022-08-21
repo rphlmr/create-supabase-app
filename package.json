@@ -21,36 +21,39 @@
     "prestart": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ."
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "typecheck": "tsc -b",
+    "format": "prettier --write ."
   },
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.2",
-    "cuid": "^2.1.8",
-    "figures": "^5.0.0",
+    "figures": "^3.2.0",
+    "fs-extra": "^10.1.0",
+    "gunzip-maybe": "^1.4.2",
     "ink": "^3.2.0",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
+    "ink-select-input": "^4.2.1",
     "ink-spinner": "^4.0.3",
     "ink-text-input": "^4.0.3",
-    "inquirer": "^9.1.0",
-    "install": "^0.13.0",
     "node-fetch": "^3.2.10",
-    "npm": "^8.17.0",
-    "ora": "^6.1.2",
+    "pg": "^8.7.3",
     "react-error-boundary": "^3.1.4",
-    "yn": "^4.0.0"
+    "sort-package-json": "^1.57.0",
+    "tar-fs": "^2.1.1"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/gunzip-maybe": "^1.4.0",
     "@types/ink-big-text": "^1.2.1",
     "@types/ink-gradient": "^2.0.1",
     "@types/inquirer": "^9.0.0",
     "@types/node": "^18.6.5",
-    "@types/node-fetch": "^2.6.2",
+    "@types/pg": "^8.6.5",
     "@types/react": "^17.0.48",
+    "@types/tar-fs": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
-    "chalk": "^4.1.2",
     "esbuild": "^0.15.2",
     "esbuild-register": "^3.3.3",
     "eslint": "^8.21.0",
@@ -64,7 +67,12 @@
     "typescript": "^4.7.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
-  "prettier": {}
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false
+  }
 }

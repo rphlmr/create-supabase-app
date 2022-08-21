@@ -24,7 +24,12 @@ const WindowButtons = () => {
   });
 
   return (
-    <Box position="absolute" marginTop={-1} marginLeft={-1}>
+    <Box
+      position="absolute"
+      marginTop={-1}
+      marginLeft={-1}
+      alignSelf="flex-start"
+    >
       <Box borderStyle="round" borderColor="red">
         <Text>Exit (esc)</Text>
       </Box>
@@ -44,41 +49,50 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
     borderStyle="round"
     borderColor="gray"
     position="relative"
+    alignItems="center"
   >
     <WindowButtons />
-    <Box justifyContent="center">
+    <Box justifyContent="center" marginTop={1}>
       <Gradient colors={["#5E12CD", "#34B27B", "#5E12CD"]}>
         <BigText text="supabase" />
       </Gradient>
       <Box
         position="absolute"
-        marginTop={8}
+        marginTop={9}
         flexDirection="column"
         alignItems="center"
       >
         {/* Hack Emoji */}
         <Box justifyContent="center" marginLeft={-2}>
           <Box marginRight={1}>
-            <Text color="yellow">👁</Text>
+            <Text>👁</Text>
           </Box>
           <Box marginLeft={1}>
             <Text color="yellow">⚡️</Text>
           </Box>
           <Box marginLeft={-2}>
-            <Text color="yellow">👁</Text>
+            <Text>👁</Text>
           </Box>
         </Box>
 
         <Box justifyContent="center">
           <Text>{`v${packageJson.version} `}</Text>
           <Text bold color="red">
-            Beta
+            Aplha
           </Text>
         </Box>
       </Box>
     </Box>
 
-    <Box flexDirection="column" padding={1} alignItems="center">
+    <Box
+      flexDirection="column"
+      paddingX={1}
+      paddingBottom={1}
+      paddingTop={5}
+      alignItems="center"
+      width="100%"
+      position="relative"
+    >
       {children}
     </Box>
   </Box>

@@ -6,6 +6,7 @@ export function getUserName() {
     process.env.LOGNAME ||
     process.env.USER ||
     process.env.LNAME ||
-    process.env.USERNAME
+    process.env.USERNAME ||
+    "John Doe"
   );
 }

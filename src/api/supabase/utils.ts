@@ -1,1 +1,1 @@
-export const supabaseAPIHost = "https://api.supabase.io";
+export const supabaseAPI = "https://api.supabase.com/v1";

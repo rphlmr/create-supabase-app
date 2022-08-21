@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const { dependencies } = require("./package.json");
+
 require("esbuild")
   .build({
     entryPoints: ["./src/entry.tsx"],
@@ -8,5 +10,7 @@ require("esbuild")
     platform: "node",
     bundle: true,
   })
-  .then(() => console.log("⚡ Done"))
+  .then(() => {
+    console.log("⚡ Done");
+  })
   .catch(() => process.exit(1));

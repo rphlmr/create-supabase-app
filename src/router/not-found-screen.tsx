@@ -6,7 +6,6 @@ import Gradient from "ink-gradient";
 
 import { useRoute } from "@router/router-context";
 
-// TODO: change colors
 export const NotFoundScreen = () => {
   const { path } = useRoute();
   return (
