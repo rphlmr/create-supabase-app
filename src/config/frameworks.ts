@@ -12,7 +12,7 @@ const supportedFrameworks = {
         label: "Basic (with authentication)",
         description:
           "Just the basics, authentication included. Start coding your awesome project right away",
-        url: "https://github.com/rphlmr/demo/tree/main/examples/remix/basic",
+        url: "https://github.com/rphlmr/create-supabase-app/tree/main/templates/remix/basic",
       },
     ],
   },
