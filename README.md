@@ -42,6 +42,8 @@ You can reuse it and improve it to quickly create your own CLI app.
 
 ## Credits
 
+The workflow comes from a retro engineering of [Supabase CLI](https://github.com/supabase/cli)
+
 The template system / idea comes from [Remix](https://github.com/remix-run/remix) `create-remix` (credits in the source code)
 
 The whole project relies on [Ink](https://github.com/vadimdemedes/ink) and :
