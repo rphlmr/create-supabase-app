@@ -5,7 +5,7 @@ const { dependencies } = require("./package.json");
 require("esbuild")
   .build({
     entryPoints: ["./src/entry.tsx"],
-    external: Object.keys(dependencies),
+    external: ["./node_modules/*"],
     outfile: "dist/app.js",
     platform: "node",
     bundle: true,

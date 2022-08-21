@@ -17,9 +17,9 @@ const ErrorFallback = ({ error }: { error: Error }) => (
     </Gradient>
 
     <Text bold color="gray">
-      Stay calm and complain here :{" "}
+      Stay calm and complaint here :{" "}
       <Text bold color="blue">
-        https://
+        https://github.com/rphlmr/create-supabase-app
       </Text>
     </Text>
 
