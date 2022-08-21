@@ -12,14 +12,7 @@ const supportedFrameworks = {
         label: "Blank (with authentication)",
         description:
           "Just the basics, authentication included. Start coding your awesome project right away",
-        url: "https://github.com/rphlmr/supa-fly-stack",
-      },
-      {
-        value: "notestaking",
-        label: "Notes taking app",
-        description:
-          "A demo of a notes taking app, with RLS (Row Level Security), a powerful feature when you need granular authorization rules",
-        url: "https://github.com/rphlmr/create-supabase-app",
+        url: "https://github.com/rphlmr/demo/tree/main/examples/remix/blank",
       },
     ],
   },
