@@ -8,5 +8,7 @@ require("esbuild")
     platform: "node",
     bundle: true,
   })
-  .then(() => console.log("⚡ Done"))
+  .then(() => {
+    console.log("⚡ Done");
+  })
   .catch(() => process.exit(1));

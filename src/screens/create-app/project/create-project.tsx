@@ -104,8 +104,9 @@ const CreateProjectScreen = () => {
           <Text color="blue">Your project is here : {projectDir}</Text>
         </Box>
 
+        {/* TODO: close app when done */}
         <Box marginTop={1}>
-          <Text color="gray">Press Esc to exit</Text>
+          <Text>Press Esc to exit</Text>
         </Box>
       </PrOwl>
     </Box>

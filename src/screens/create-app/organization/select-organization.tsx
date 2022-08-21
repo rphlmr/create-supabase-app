@@ -71,7 +71,7 @@ const SelectOrganizationScreen = () => {
       <Box justifyContent="center">
         <Text color="blue">
           <Spinner type="bouncingBar" />
-          <Text bold> Loading your Supabase organizations</Text>
+          <Text> Loading your Supabase organizations</Text>
         </Text>
       </Box>
     );

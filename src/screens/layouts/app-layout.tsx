@@ -58,13 +58,16 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
     alignItems="center"
   >
     <WindowButtons />
-    <Box justifyContent="center">
+    <Box
+      justifyContent="center"
+      marginTop={1}
+    >
       <Gradient colors={["#5E12CD", "#34B27B", "#5E12CD"]}>
         <BigText text="supabase" />
       </Gradient>
       <Box
         position="absolute"
-        marginTop={8}
+        marginTop={9}
         flexDirection="column"
         alignItems="center"
       >
@@ -100,7 +103,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
       flexDirection="column"
       paddingX={1}
       paddingBottom={1}
-      paddingTop={4}
+      paddingTop={5}
       alignItems="center"
       width="100%"
       position="relative"
