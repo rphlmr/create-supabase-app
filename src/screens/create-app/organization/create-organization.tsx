@@ -61,13 +61,19 @@ const CreateOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box justifyContent="center">
-        <Text color="blue">
-          <Spinner type="bouncingBar" />{" "}
-          <Text>
-            Creating your Supabase organization{" "}
-            <Text bold>{choice || getUserName()}</Text>
+      <Box
+        alignItems="center"
+        flexDirection="column"
+      >
+        <Box marginBottom={1}>
+          <Text color="blue">
+            <Spinner type="bouncingBar" />
           </Text>
+        </Box>
+
+        <Text>
+          Creating your Supabase organization{" "}
+          <Text bold>{choice || getUserName()}</Text>
         </Text>
       </Box>
     );

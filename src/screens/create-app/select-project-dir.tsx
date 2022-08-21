@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from "react";
 
 import { Box, Text } from "ink";
-import TextInput from "ink-text-input";
 
 import { checkNewProjectPath } from "@utils/check-new-project-path";
 
 import { PrOwl } from "@components/pr-owl";
+import { TextInput } from "@components/text-input";
 import { useNavigation } from "@router/router-context";
 
 const defaultFolder = "./my-supabase-app";
@@ -85,19 +85,12 @@ const SelectProjectDirScreen = () => {
         flexDirection="column"
         justifyContent="center"
       >
-        <Box
-          borderStyle="round"
-          borderColor="white"
-          paddingX={2}
-          width={35}
-        >
-          <TextInput
-            value={choice}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            placeholder="./my-supabase-app"
-          />
-        </Box>
+        <TextInput
+          value={choice}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          placeholder="./my-supabase-app"
+        />
       </Box>
     </Box>
   );

@@ -6,12 +6,12 @@ import SelectInput from "ink-select-input";
 import { PrOwl } from "@components/pr-owl";
 import { Indicator } from "@components/select-input/indicator";
 import { Option } from "@components/select-input/option";
-import type { CreateAppDatas } from "@config/frameworks";
+import type { CreateAppConfig } from "@config/frameworks";
 import { getTemplates } from "@config/frameworks";
 import { useNavigation, useRouteParams } from "@router/router-context";
 
 const SelectTemplateScreen = () => {
-  const { framework } = useRouteParams() as Pick<CreateAppDatas, "framework">;
+  const { framework } = useRouteParams() as Pick<CreateAppConfig, "framework">;
   const { navigateTo } = useNavigation();
   const templates = useMemo(() => getTemplates(framework), [framework]);
   const [choice, setChoice] = useState(templates[0]);

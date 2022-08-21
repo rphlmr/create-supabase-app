@@ -68,11 +68,17 @@ const SelectOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box justifyContent="center">
-        <Text color="blue">
-          <Spinner type="bouncingBar" />
-          <Text> Loading your Supabase organizations</Text>
-        </Text>
+      <Box
+        alignItems="center"
+        flexDirection="column"
+      >
+        <Box marginBottom={1}>
+          <Text color="blue">
+            <Spinner type="bouncingBar" />
+          </Text>
+        </Box>
+
+        <Text> Loading your Supabase organizations</Text>
       </Box>
     );
   }

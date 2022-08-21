@@ -9,11 +9,13 @@ import { RouterProvider } from "@router/router-context";
 import AuthScreen from "@screens/auth";
 import CreateOrganizationScreen from "@screens/create-app/organization/create-organization";
 import SelectOrganizationScreen from "@screens/create-app/organization/select-organization";
+import APIKeyScreen from "@screens/create-app/project/api-keys";
 import CreateProjectScreen from "@screens/create-app/project/create-project";
 import DbPasswordScreen from "@screens/create-app/project/db-password";
 import SelectPlanScreen from "@screens/create-app/project/select-plan";
 import SelectRegionScreen from "@screens/create-app/project/select-region";
 import SupabaseProjectNameScreen from "@screens/create-app/project/supabase-project-name";
+import RunProjectInit from "@screens/create-app/run-init-project";
 import SelectFrameworkScreen from "@screens/create-app/select-framework";
 import SelectProjectDirScreen from "@screens/create-app/select-project-dir";
 import SelectTemplateScreen from "@screens/create-app/select-template";
@@ -76,7 +78,15 @@ export const App = () => (
                 path="create"
                 screen={<CreateProjectScreen />}
               />
+              <Route
+                path="api-keys"
+                screen={<APIKeyScreen />}
+              />
             </Route>
+            <Route
+              path="run-init-project"
+              screen={<RunProjectInit />}
+            />
           </Route>
         </Route>
       </Router>

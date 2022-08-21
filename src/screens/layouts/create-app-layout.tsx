@@ -7,13 +7,13 @@ import Spinner from "ink-spinner";
 import { downloadAndExtractTarball } from "@api/github/download-and-extract-tarball";
 import { extractRepoInfo } from "@api/github/extract-repo-info";
 
-import type { CreateAppDatas } from "@config/frameworks";
+import type { CreateAppConfig } from "@config/frameworks";
 import { getTemplate, getFrameworkName } from "@config/frameworks";
 import { useRouteParams } from "@router/router-context";
 
 const useFetchRepository = () => {
   const { template, framework, projectDir } = useRouteParams() as Pick<
-    CreateAppDatas,
+    CreateAppConfig,
     "framework" | "template" | "projectDir"
   >;
   const [isLoading, setIsLoading] = useState(false);

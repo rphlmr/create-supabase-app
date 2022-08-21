@@ -4,13 +4,13 @@ import { Box, Text } from "ink";
 import TextInput from "ink-text-input";
 
 import { PrOwl } from "@components/pr-owl";
-import type { CreateAppDatas } from "@config/frameworks";
+import type { CreateAppConfig } from "@config/frameworks";
 import { useNavigation, useRouteParams } from "@router/router-context";
 
 const SupabaseProjectNameScreen = () => {
   const { navigateTo } = useNavigation();
   const { projectName } = useRouteParams() as Pick<
-    CreateAppDatas,
+    CreateAppConfig,
     "projectName"
   >;
   const [choice, setChoice] = useState("");
@@ -59,19 +59,12 @@ const SupabaseProjectNameScreen = () => {
         flexDirection="column"
         justifyContent="center"
       >
-        <Box
-          borderStyle="round"
-          borderColor="white"
-          paddingX={2}
-          width={35}
-        >
-          <TextInput
-            value={choice}
-            onChange={setChoice}
-            onSubmit={handleSubmit}
-            placeholder={projectName}
-          />
-        </Box>
+        <TextInput
+          value={choice}
+          onChange={setChoice}
+          onSubmit={handleSubmit}
+          placeholder={projectName}
+        />
       </Box>
     </Box>
   );

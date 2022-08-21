@@ -15,7 +15,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@auth/*": ["./src/auth/*"],
+      "@auth/*": ["src/internal/auth/*"],
+      "@internal/*": ["src/internal/*"],
       "@router/*": ["./src/router/*"],
       "@layouts/*": ["./src/screens/layouts/*"],
       "@screens/*": ["./src/screens/*"],

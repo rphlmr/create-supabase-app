@@ -58,14 +58,17 @@ export const getTemplateName = (framework: Framework, template: Template) =>
 export type Framework = keyof typeof supportedFrameworks;
 export type Template = ReturnType<typeof getTemplates>[number]["value"];
 
-export type CreateAppDatas = {
+export type CreateAppConfig = {
   framework: Framework;
   template: Template;
   projectDir: string;
   organizationId: string;
   projectName: string;
+  projectId: string;
   supabaseProjectName: string;
   dbPassword: string;
   plan: "free" | "pro";
   region: Region;
+  anonKey: string;
+  serviceRoleKey: string;
 };
