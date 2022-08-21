@@ -4,25 +4,27 @@
 
 This terminal application aims to help new developers to quickly create full stack application powered by Supabase.
 
-
->It do not replace [Supabase CLI](https://supabase.com/docs/guides/cli)
+> It do not replace [Supabase CLI](https://supabase.com/docs/guides/cli)
 
 ## Pick a starter project & start playing with Supabase!
->🚨 This is still an **alpha** and could be **unstable**
 
+> 🚨 This is still an **alpha** and could be **unstable**
+> 21/08/2022 : not tested on Windows & Linux. Planned to be tested asap.
 
 ```sh
 npx create-supabase-app@latest
 ```
 
 ## Future
+
 Known issues:
+
 - [ ] Fix color theme (solarized dark don't work well)
 - [ ] UI glitches (maybe it's not solvable)
 - [ ] Not responsive 😂 (and probably never)
 
+I plan to add more features and improve the experience (order is subjective) :
 
-I plan to add more features and improve the experience (order is subjective) : 
 - [ ] Add Next.js templates
 - [ ] Add more examples with Supabase (edge functions, realtime, magic link auth)
 - [ ] Add a no ui mode and support args
@@ -34,13 +36,16 @@ I plan to add more features and improve the experience (order is subjective) :
 - [ ] Why not Expo examples ?
 
 ## Make your own CLI app!
+
 To make what I wanted to do, I created a naive implementation of React Router / React Navigation.
-You can reuse it and improve it to quickly create your own CLI app. 
+You can reuse it and improve it to quickly create your own CLI app.
 
 ## Credits
+
 The template system / idea comes from [Remix](https://github.com/remix-run/remix) `create-remix` (credits in the source code)
 
 The whole project relies on [Ink](https://github.com/vadimdemedes/ink) and :
+
 - [ink-big-text](https://github.com/sindresorhus/ink-big-text)
 - [ink-gradient](https://github.com/sindresorhus/ink-gradient)
 - [ink-select-input](https://github.com/vadimdemedes/ink-select-input)
