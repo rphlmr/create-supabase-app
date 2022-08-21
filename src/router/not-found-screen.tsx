@@ -6,13 +6,18 @@ import Gradient from "ink-gradient";
 
 import { useRoute } from "@router/router-context";
 
-// TODO: change colors
 export const NotFoundScreen = () => {
   const { path } = useRoute();
   return (
-    <Box flexDirection="column" alignItems="center">
+    <Box
+      flexDirection="column"
+      alignItems="center"
+    >
       <Gradient name="vice">
-        <BigText text="404" font="tiny" />
+        <BigText
+          text="404"
+          font="tiny"
+        />
       </Gradient>
 
       <Text color="gray">Not found {path}</Text>

@@ -3,7 +3,7 @@ import { createError, mayBeSupabaseAPIError } from "@utils/handle-error";
 
 import { supabaseAPI } from "./utils";
 
-export const region = {
+const region = {
   "ap-northeast-1": "Northeast Asia (Tokyo)",
   "ap-northeast-2": "Northeast Asia (Seoul)",
   "ap-south-1": "South Asia (Mumbai)",

@@ -1,5 +1,3 @@
-// import type { Response } from "node-fetch";
-
 import type { Response } from "node-fetch";
 
 import { isEmpty } from "./is-empty";
@@ -27,10 +25,3 @@ export async function mayBeSupabaseAPIError(response: Response) {
       .catch((error) => error)) || ""
   );
 }
-
-// export async function APIError(message: string, response: Response) {
-//   const details = await response.text().catch(() => "Unknown");
-//   return new Error(
-//     `${message}. "${response.status}" - "${response.statusText}"\n.Details : ${details}`
-//   );
-// }

@@ -20,11 +20,8 @@
       "@layouts/*": ["./src/screens/layouts/*"],
       "@screens/*": ["./src/screens/*"],
       "@components/*": ["./src/components/*"],
-      "@internal/api": ["./src/internal/client/index.ts"],
-      "@internal/auth": ["./src/internal/auth.ts"],
       "@api/*": ["./src/api/*"],
       "@config/*": ["./src/config/*"],
-      "@modules/*": ["./src/modules/*"],
       "@utils/*": ["./src/utils/*"]
     },
     "outDir": "dist"
