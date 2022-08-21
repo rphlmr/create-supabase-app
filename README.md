@@ -2,7 +2,7 @@
 
 [Supabase](https://supabase.com/) is an open source Firebase alternative.
 
-This terminal application aims to help new developers to quickly create full stack application powered by Supabase.
+This terminal application aims to help new developers to quickly create ready to play applications, powered by Supabase.
 
 > It do not replace [Supabase CLI](https://supabase.com/docs/guides/cli)
 
