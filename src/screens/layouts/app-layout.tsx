@@ -51,7 +51,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
     alignItems="center"
   >
     <WindowButtons />
-    <Box alignItems="center" flexDirection="column">
+    <Box alignItems="center" flexDirection="column" position="relative">
       <Text color="#34B27B">
         <BigText text="supabase" font="simple3d" />
       </Text>
@@ -61,9 +61,10 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
         alignItems="center"
         position="absolute"
         marginTop={9}
+        paddingRight={2}
       >
         {/* Hack Emoji */}
-        <Box justifyContent="center" marginLeft={-2}>
+        <Box justifyContent="center">
           <Box marginRight={1}>
             <Text>👁</Text>
           </Box>
