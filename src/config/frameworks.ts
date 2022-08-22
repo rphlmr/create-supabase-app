@@ -14,6 +14,13 @@ const supportedFrameworks = {
           "Just the basics, authentication included. Start coding your awesome project right away",
         url: "https://github.com/rphlmr/create-supabase-app/tree/main/templates/remix/basic",
       },
+      {
+        value: "basic-v2",
+        label: "Basic V2 (with authentication)",
+        description:
+          "Just the basics, authentication included. Start coding your awesome project right away.\nUse Supabase.js v2 RC",
+        url: "https://github.com/rphlmr/create-supabase-app/tree/main/templates/remix/basic-v2",
+      },
     ],
   },
   nextjs: {

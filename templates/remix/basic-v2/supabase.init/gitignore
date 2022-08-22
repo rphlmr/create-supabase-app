@@ -1,0 +1,16 @@
+node_modules
+
+/build
+/public/build
+.env
+
+
+/app/styles/tailwind.css
+
+.vscode
+.idea
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
+**/supabase/.env

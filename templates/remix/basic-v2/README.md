@@ -1,6 +1,9 @@
-# Create Supabase App - Remix Basic Template
+# Create Supabase App - Remix Basic V2 Template
 
 Learn more about [Remix](https://remix.run/).
+
+> This template use [Supabase.js v2](https://supabase.com/docs/reference/javascript/next/release-notes)
+> Still in RC
 
 ## What's in this template
 
