@@ -8,3 +8,5 @@ dist
 
 # project location placeholder
 my-supabase-app
+
+.DS_Store
