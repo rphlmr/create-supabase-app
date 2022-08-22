@@ -9,16 +9,16 @@ const supportedFrameworks = {
     templates: [
       {
         value: "basic",
-        label: "Basic (with authentication)",
+        label: "Basic",
         description:
           "Just the basics, authentication included. Start coding your awesome project right away",
         url: "https://github.com/rphlmr/create-supabase-app/tree/main/templates/remix/basic",
       },
       {
         value: "basic-v2",
-        label: "Basic V2 (with authentication)",
+        label: "Basic with supabase.js v2",
         description:
-          "Just the basics, authentication included. Start coding your awesome project right away.\nUse Supabase.js v2 RC",
+          "Just the basics, authentication included. Start coding your awesome project right away",
         url: "https://github.com/rphlmr/create-supabase-app/tree/main/templates/remix/basic-v2",
       },
     ],
