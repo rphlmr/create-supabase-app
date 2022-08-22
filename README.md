@@ -20,7 +20,7 @@ npx create-supabase-app@latest # Not yet available 🙃
 Known issues:
 
 - [ ] Fix color theme (solarized dark don't work well)
-- [ ] UI glitches (maybe it's not solvable)
+- [x] UI glitches (solved by changing title font and removing gradients 🥲)
 - [ ] Not responsive 😂 (and probably never)
 
 I plan to add more features and improve the experience (order is subjective) :

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import figures from "figures";
 import { Box, Text, useApp } from "ink";
-import Spinner from "ink-spinner";
 
+import { Error } from "@components/error";
+import { Loading } from "@components/loading";
 import { PrOwl } from "@components/pr-owl";
 import type { CreateAppConfig } from "@config/frameworks";
 import { initProject } from "@internal/init-project";
@@ -44,13 +45,7 @@ export default function RunProjectInit() {
 
   if (isLoading) {
     return (
-      <Box alignItems="center" flexDirection="column">
-        <Box marginBottom={1}>
-          <Text color="blue">
-            <Spinner type="bouncingBar" />
-          </Text>
-        </Box>
-
+      <Loading>
         <Text>
           Preparing your Supabase project <Text bold>{projectName}</Text>
         </Text>
@@ -58,17 +53,15 @@ export default function RunProjectInit() {
           It can take a few minutes to Supabase to finish initializing your
           database.
         </Text>
-      </Box>
+      </Loading>
     );
   }
 
   if (error) {
     return (
-      <Box justifyContent="center">
-        <Text color="red" bold>
-          <Text>{error}</Text>
-        </Text>
-      </Box>
+      <Error>
+        <Text>{error}</Text>
+      </Error>
     );
   }
 

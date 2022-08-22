@@ -2,7 +2,6 @@ import React from "react";
 
 import { Box, Text, useInput, Spacer, useApp } from "ink";
 import BigText from "ink-big-text";
-import Gradient from "ink-gradient";
 
 import { useAuth } from "@auth/auth-context";
 import { useNavigation } from "@router/router-context";
@@ -52,15 +51,16 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
     alignItems="center"
   >
     <WindowButtons />
-    <Box justifyContent="center" marginTop={1}>
-      <Gradient colors={["#5E12CD", "#34B27B", "#5E12CD"]}>
-        <BigText text="supabase" />
-      </Gradient>
+    <Box alignItems="center" flexDirection="column">
+      <Text color="#34B27B">
+        <BigText text="supabase" font="simple3d" />
+      </Text>
+
       <Box
-        position="absolute"
-        marginTop={9}
         flexDirection="column"
         alignItems="center"
+        position="absolute"
+        marginTop={9}
       >
         {/* Hack Emoji */}
         <Box justifyContent="center" marginLeft={-2}>
@@ -74,7 +74,6 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
             <Text>👁</Text>
           </Box>
         </Box>
-
         <Box justifyContent="center">
           <Text>{`v${packageJson.version} `}</Text>
           <Text bold color="red">
@@ -91,7 +90,6 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
       paddingTop={5}
       alignItems="center"
       width="100%"
-      position="relative"
     >
       {children}
     </Box>

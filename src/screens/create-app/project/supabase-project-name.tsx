@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from "react";
 
 import { Box, Text } from "ink";
-import TextInput from "ink-text-input";
 
 import { PrOwl } from "@components/pr-owl";
+import { TextInput } from "@components/text-input";
 import type { CreateAppConfig } from "@config/frameworks";
 import { useNavigation, useRouteParams } from "@router/router-context";
 

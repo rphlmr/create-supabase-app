@@ -58,6 +58,7 @@ const SelectTemplateScreen = () => {
           itemComponent={Option}
           onHighlight={(item) => setChoice(item as typeof choice)}
           indicatorComponent={Indicator}
+          limit={3}
         />
       </Box>
     </Box>

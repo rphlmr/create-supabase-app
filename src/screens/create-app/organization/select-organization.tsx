@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Box, Text } from "ink";
 import SelectInput from "ink-select-input";
-import Spinner from "ink-spinner";
 
 import { getOrganizations } from "@api/supabase/organizations";
 
@@ -10,6 +9,8 @@ import { createChoices } from "@utils/create-choices";
 import { isEmpty } from "@utils/is-empty";
 
 import { useAuth } from "@auth/auth-context";
+import { Error } from "@components/error";
+import { Loading } from "@components/loading";
 import { PrOwl } from "@components/pr-owl";
 import { Indicator } from "@components/select-input/indicator";
 import { Option } from "@components/select-input/option";
@@ -68,25 +69,17 @@ const SelectOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box alignItems="center" flexDirection="column">
-        <Box marginBottom={1}>
-          <Text color="blue">
-            <Spinner type="bouncingBar" />
-          </Text>
-        </Box>
-
+      <Loading>
         <Text> Loading your Supabase organizations</Text>
-      </Box>
+      </Loading>
     );
   }
 
   if (error) {
     return (
-      <Box justifyContent="center">
-        <Text color="red" bold>
-          <Text>{error}</Text>
-        </Text>
-      </Box>
+      <Error>
+        <Text>{error}</Text>
+      </Error>
     );
   }
 
