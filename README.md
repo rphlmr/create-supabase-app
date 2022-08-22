@@ -1,5 +1,7 @@
 # Welcome to Create Supabase App 👁⚡️👁
 
+![create-supabase-app](https://user-images.githubusercontent.com/20722140/185958507-701187b3-3567-470d-b046-69d9dfb93c84.png)
+
 [Supabase](https://supabase.com/) is an open source Firebase alternative.
 
 This terminal application aims to help new developers to quickly create ready to play applications, powered by Supabase.
