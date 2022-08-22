@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { Box, Text } from "ink";
-import Spinner from "ink-spinner";
+import { Text } from "ink";
 
 import { createProject } from "@api/supabase/project";
 
 import { useAuth } from "@auth/auth-context";
+import { Error } from "@components/error";
+import { Loading } from "@components/loading";
 import type { CreateAppConfig } from "@config/frameworks";
 import { useNavigation, useRouteParams } from "@router/router-context";
 
@@ -66,27 +67,19 @@ const CreateProjectScreen = () => {
 
   if (isLoading) {
     return (
-      <Box alignItems="center" flexDirection="column">
-        <Box marginBottom={1}>
-          <Text color="blue">
-            <Spinner type="bouncingBar" />
-          </Text>
-        </Box>
-
+      <Loading>
         <Text>
           Creating your Supabase project <Text bold>{projectName}</Text>
         </Text>
-      </Box>
+      </Loading>
     );
   }
 
   if (error) {
     return (
-      <Box justifyContent="center">
-        <Text color="red" bold>
-          <Text>{error}</Text>
-        </Text>
-      </Box>
+      <Error>
+        <Text>{error}</Text>
+      </Error>
     );
   }
 

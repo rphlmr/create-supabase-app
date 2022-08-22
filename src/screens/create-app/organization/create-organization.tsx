@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import { Box, Text } from "ink";
-import Spinner from "ink-spinner";
-import TextInput from "ink-text-input";
 
 import { createOrganization } from "@api/supabase/organizations";
 
 import { getUserName } from "@utils/user-name";
 
 import { useAuth } from "@auth/auth-context";
+import { Error } from "@components/error";
+import { Loading } from "@components/loading";
 import { PrOwl } from "@components/pr-owl";
+import { TextInput } from "@components/text-input";
 import { useNavigation } from "@router/router-context";
 
 const useCreateOrganization = () => {
@@ -61,28 +62,20 @@ const CreateOrganizationScreen = () => {
 
   if (isLoading) {
     return (
-      <Box alignItems="center" flexDirection="column">
-        <Box marginBottom={1}>
-          <Text color="blue">
-            <Spinner type="bouncingBar" />
-          </Text>
-        </Box>
-
+      <Loading>
         <Text>
           Creating your Supabase organization{" "}
           <Text bold>{choice || getUserName()}</Text>
         </Text>
-      </Box>
+      </Loading>
     );
   }
 
   if (error) {
     return (
-      <Box justifyContent="center">
-        <Text color="red" bold>
-          <Text>{error}</Text>
-        </Text>
-      </Box>
+      <Error>
+        <Text>{error}</Text>
+      </Error>
     );
   }
 
@@ -117,14 +110,12 @@ It's a logical grouping of your Supabase projects.`}
       </Box>
 
       <Box flexDirection="column" justifyContent="center">
-        <Box borderStyle="round" borderColor="white" paddingX={2} width={35}>
-          <TextInput
-            value={choice}
-            onChange={setChoice}
-            onSubmit={handleSubmit}
-            placeholder={getUserName()}
-          />
-        </Box>
+        <TextInput
+          value={choice}
+          onChange={setChoice}
+          onSubmit={handleSubmit}
+          placeholder={getUserName()}
+        />
       </Box>
     </Box>
   );
