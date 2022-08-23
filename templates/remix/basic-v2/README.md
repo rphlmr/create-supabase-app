@@ -2,7 +2,7 @@
 
 Learn more about [Remix](https://remix.run/).
 
-> This template use [Supabase.js v2](https://supabase.com/docs/reference/javascript/next/release-notes)
+> This template uses [Supabase.js v2](https://supabase.com/docs/reference/javascript/next/release-notes)
 
 ## What's in this template
 
