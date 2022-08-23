@@ -22,10 +22,8 @@ const SelectProjectDirScreen = () => {
       );
 
       if (projectDir) {
-        const projectName = projectDir.split("/").pop();
         return navigateTo(`/create-app/organization`, {
           projectDir,
-          projectName,
         });
       }
 

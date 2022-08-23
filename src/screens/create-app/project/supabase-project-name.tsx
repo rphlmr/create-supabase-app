@@ -1,6 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import { Box, Text } from "ink";
+
+import { getDefaultProjectName } from "@utils/get-default-project-name";
 
 import { PrOwl } from "@components/pr-owl";
 import { TextInput } from "@components/text-input";
@@ -9,19 +11,23 @@ import { useNavigation, useRouteParams } from "@router/router-context";
 
 const SupabaseProjectNameScreen = () => {
   const { navigateTo } = useNavigation();
-  const { projectName } = useRouteParams() as Pick<
+  const { projectDir } = useRouteParams() as Pick<
     CreateAppConfig,
-    "projectName"
+    "projectDir"
   >;
   const [choice, setChoice] = useState("");
+  const defaultProjectName = useMemo(
+    () => getDefaultProjectName(projectDir),
+    [projectDir]
+  );
 
   const handleSubmit = useCallback(
     async (input: string) => {
-      const supabaseProjectName = input || projectName;
+      const supabaseProjectName = input || defaultProjectName;
 
       navigateTo("/create-app/project/db-password", { supabaseProjectName });
     },
-    [navigateTo, projectName]
+    [navigateTo, defaultProjectName]
   );
 
   return (
@@ -36,7 +42,7 @@ const SupabaseProjectNameScreen = () => {
           <Box flexDirection="column" alignItems="center" marginTop={1}>
             <Text>You choose</Text>
             <Text bold color="green">
-              {choice || projectName}
+              {choice || defaultProjectName}
             </Text>
           </Box>
         </PrOwl>
@@ -47,7 +53,7 @@ const SupabaseProjectNameScreen = () => {
           value={choice}
           onChange={setChoice}
           onSubmit={handleSubmit}
-          placeholder={projectName}
+          placeholder={defaultProjectName}
         />
       </Box>
     </Box>
