@@ -30,7 +30,7 @@ const WindowButtons = () => {
       alignSelf="flex-start"
     >
       <Box borderStyle="round" borderColor="red">
-        <Text>Exit (esc)</Text>
+        <Text>Exit (ESC)</Text>
       </Box>
       <Spacer />
       {accessToken ? (
@@ -78,7 +78,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
         <Box justifyContent="center">
           <Text>{`v${version} `}</Text>
           <Text bold color="red">
-            Aplha
+            Alpha
           </Text>
         </Box>
       </Box>
