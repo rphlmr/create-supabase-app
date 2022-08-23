@@ -22,13 +22,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  ignorePatterns: [
-    "node_modules",
-    ".eslintrc.cjs",
-    "build.js",
-    "dist",
-    "templates",
-  ],
+  ignorePatterns: ["node_modules", ".eslintrc.cjs", "dist", "templates"],
   settings: {
     "import/extensions": [".ts", ".js", ".tsx"],
     "import/parsers": {
