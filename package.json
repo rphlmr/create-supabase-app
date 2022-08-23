@@ -1,18 +1,18 @@
 {
   "name": "create-supabase-app",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.11",
   "description": "A CLI to create apps powered by Supabase",
   "author": "Raphaël Moreau <raphael@uaerom.com> (https://twitter.com/rphlmr)",
   "repository": "https://github.com/rphlmr/create-supabase-app",
   "bugs": {
     "url": "https://github.com/rphlmr/create-supabase-app/issues"
   },
-  "main": "dist/app.js",
+  "main": "dist/entry.js",
   "bin": {
-    "create-supabase-app": "dist/app.js"
+    "create-supabase-app": "dist/entry.js"
   },
   "files": [
-    "dist/**/*.js",
+    "dist",
     "README.md",
     "LICENSE.md",
     "CHANGELOG.md"
@@ -20,11 +20,12 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "node build.js",
+    "build": "tsc && tsc-alias",
     "prepublish": "npm run build",
     "prestart": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/app.js",
+    "start": "node dist/entry.js",
+    "dev": "node dist/entry.js",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "typecheck": "tsc -b",
     "format": "prettier --write ."
@@ -42,6 +43,7 @@
     "ink-text-input": "^4.0.3",
     "node-fetch": "^3.2.10",
     "pg": "^8.7.3",
+    "react": "^17.0.2",
     "react-error-boundary": "^3.1.4",
     "sort-package-json": "^1.57.0",
     "tar-fs": "^2.1.1"
@@ -58,8 +60,6 @@
     "@types/tar-fs": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
-    "esbuild": "^0.15.2",
-    "esbuild-register": "^3.3.3",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.4.0",
@@ -68,6 +68,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "tsc-alias": "^1.7.0",
     "typescript": "^4.7.4"
   },
   "engines": {

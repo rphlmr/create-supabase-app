@@ -3,3 +3,5 @@ const fetchPromise = import("node-fetch").then((mod) => mod.default);
 
 export const nfetch: Awaited<typeof fetchPromise> = (...args) =>
   fetchPromise.then((fetch) => fetch(...args));
+
+export type Response = Awaited<ReturnType<typeof nfetch>>;
