@@ -3,6 +3,7 @@ import React, { useCallback, useState } from "react";
 import { Box, Text } from "ink";
 
 import { checkNewProjectPath } from "@utils/check-new-project-path";
+import { getDefaultProjectName } from "@utils/get-default-project-name";
 
 import { PrOwl } from "@components/pr-owl";
 import { TextInput } from "@components/text-input";
@@ -22,8 +23,10 @@ const SelectProjectDirScreen = () => {
       );
 
       if (projectDir) {
+        const projectName = getDefaultProjectName(projectDir);
         return navigateTo(`/create-app/organization`, {
           projectDir,
+          projectName,
         });
       }
 
