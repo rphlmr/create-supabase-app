@@ -6,7 +6,7 @@ import BigText from "ink-big-text";
 import { useAuth } from "@auth/auth-context";
 import { useNavigation } from "@router/router-context";
 
-import packageJson from "../../../package.json";
+import { version } from "../../version.json";
 
 const WindowButtons = () => {
   const app = useApp();
@@ -76,7 +76,7 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => (
           </Box>
         </Box>
         <Box justifyContent="center">
-          <Text>{`v${packageJson.version} `}</Text>
+          <Text>{`v${version} `}</Text>
           <Text bold color="red">
             Aplha
           </Text>

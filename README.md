@@ -11,24 +11,24 @@ This terminal application aims to help new developers to quickly create ready to
 ## Pick a starter project & start playing with Supabase!
 
 > 🚨 This is still an **alpha** and could be **unstable**
-> 21/08/2022 : not tested on Windows & Linux. Planned to be tested asap.
 
 ```sh
-npx create-supabase-app@latest # Not yet available 🙃
+npx create-supabase-app@latest
 ```
 
 ## Future
 
 Known issues:
 
+- [x] UI glitches on macOS & Linux (solved by changing title font and removing gradients 🥲)
 - [ ] Fix color theme (solarized dark don't work well)
-- [x] UI glitches (solved by changing title font and removing gradients 🥲)
+- [ ] Windows with WSL 2, glitches with some Terminal, glitches when screen rerender (Ink know issue)
 - [ ] Not responsive 😂 (and probably never)
 
 I plan to add more features and improve the experience (order is subjective) :
 
 - [ ] Add Next.js templates
-- [ ] Add more examples with Supabase (edge functions, realtime, magic link auth)
+- [ ] Add more examples with Supabase (edge functions, realtime, ...)
 - [ ] Add a no ui mode and support args
 - [ ] Add an option to create a local project with Supabase CLI (more advanced use case)
 - [ ] Add tooling to generate base templates (like replicating Auth module without copy/paste)

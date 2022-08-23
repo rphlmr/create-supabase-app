@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "commonjs",
     "jsx": "react",
     "esModuleInterop": true,
-    "moduleResolution": "Node",
+    "moduleDetection": "force",
+    "moduleResolution": "Node16",
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "declaration": true,
-    "importHelpers": true,
+    "declaration": false,
+    "importHelpers": false,
     "removeComments": true,
     "allowJs": true,
     "resolveJsonModule": true,
@@ -28,5 +30,5 @@
     "outDir": "dist"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "./build.js", "dist/**/*"]
+  "exclude": ["node_modules", "dist/**/*"]
 }

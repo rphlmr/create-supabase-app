@@ -1,5 +1,4 @@
-import type { Response } from "node-fetch";
-
+import type { Response } from "./fetch";
 import { isEmpty } from "./is-empty";
 import { NEW_LINE } from "./print";
 
